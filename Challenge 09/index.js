@@ -135,45 +135,25 @@ const users = [
 
 {/* Solution */}
 // Using map method create an array containing only displayNames of the users
-const myarr = [];
-const newArr = users.map(nameDispaly)
-
-function nameDispaly(data) {
-  myarr.push(data.displayName);
-}
-console.log('Displaying only names of employees form users array')
-for(i=0; i < myarr.length; i++){
-  console.log(myarr[i]);
-}
+console.log('Displaying names of all employees')
+const newArray = users.map((data) => data.displayName);
+console.log(newArray);
 
 // Using filter method create an array of users who are senior engineers
+console.log('Displaying array of all Sr. employees form users array')
 let senior = users.filter(arraymy => arraymy.jobtitle == 'Sr. Front-End Engineer');
-console.log('Displaying names of all Sr. employees form users array')
-for(i=0; i < senior.length; i++){
-  console.log(senior[i].displayName);
-}
+console.log(senior);
+
 
 
 // Using reduce method create the sum of employeeNumber of all users
 console.log('Displaying sum of all employee number form users array')
-let sum = users.reduce(function (accumulator, currentValue) {
-  const returns = (accumulator?.employeeNumber??accumulator) + currentValue?.employeeNumber;
-  console.log(returns);
-  return returns;
-});
+let sum = users.reduce((accumulator, currentValue) => accumulator + currentValue.employeeNumber, 0);
+console.log(sum);
 
 
 // Bonus: You can chain the array methods so try using map on the filtered array of senior engineers and create and array of their employee numbers
-const getId = [];
-const idArr = users.map(empidset)
-function empidset(data) {
-  if(data.jobtitle == 'Sr. Front-End Engineer'){
-    getId.push(data.employeeNumber);
-  }
-}
-console.log('Displaying employee numbers form users array')
-for(i=0; i < getId.length; i++){
-  console.log(getId[i]);
-}
+const seniorEmpNumber = senior.map((data) => data.employeeNumber);
+console.log(seniorEmpNumber);
 
 
